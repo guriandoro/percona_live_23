@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": false,
         "iconColor": "#e0752d",
@@ -28,7 +31,10 @@
       },
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "#6ed0e0",
@@ -50,8 +56,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": 61,
-  "iteration": 1652898138191,
+  "id": 68,
   "links": [
     {
       "icon": "doc",
@@ -126,46 +131,44 @@
   "liveNow": false,
   "panels": [
     {
-      "breadcrumbItemsMaxAmount": 6,
-      "gridPos": {
-        "h": 2,
-        "w": 24,
-        "x": 0,
-        "y": 0
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
       },
-      "hideTextInRootDashboard": false,
-      "id": 999,
-      "isRootDashboard": false,
-      "links": [],
-      "targets": [
-        {
-          "expr": "",
-          "format": "time_series",
-          "intervalFactor": 1,
-          "refId": "A"
-        }
-      ],
-      "title": " ",
-      "transparent": true,
-      "type": "digiapulssi-breadcrumb-panel"
-    },
-    {
       "gridPos": {
         "h": 3,
         "w": 24,
         "x": 0,
-        "y": 2
+        "y": 0
       },
       "id": 30,
       "links": [],
       "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
         "content": "<h1 style='color:#5991A7;font-weight:bold;text-align:center;font-style:italic'>Data for <span style='color:#e68a00'>$service_name</span> with <span style='color:#e68a00'>$interval</span> resolution</h1>",
         "mode": "html"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
+          "refId": "A"
+        }
+      ],
       "type": "text"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "Reports whether PMM Server can connect to the PostgreSQL instance.",
       "fieldConfig": {
         "defaults": {
@@ -219,7 +222,7 @@
         "h": 3,
         "w": 4,
         "x": 0,
-        "y": 5
+        "y": 3
       },
       "id": 63,
       "links": [],
@@ -241,9 +244,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "expr": "avg by (service_name) (pg_up{service_name=~\"$service_name\"})",
           "format": "time_series",
           "interval": "$interval",
@@ -256,41 +263,81 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "",
       "gridPos": {
         "h": 3,
         "w": 5,
         "x": 4,
-        "y": 5
+        "y": 3
       },
       "id": 1001,
       "options": {
-        "content": "<h5 style='color:#e68a00;font-weight:bold;text-align:center'><a href=\"/graph/d/node-instance-summary/node-summary?var-node_name=$node_name\" target=\"_blank\">$crop_host...</a></h5>",
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<h5 style='color:#e68a00;font-weight:bold;text-align:center'><a href=\"/graph/d/node-instance-summary/node-summary?var-node_name=$node_name\" target=\"_blank\">$node_name</a></h5>",
         "mode": "html"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Node",
       "type": "text"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "The version of the PostgreSQL instance.",
       "gridPos": {
         "h": 3,
         "w": 5,
         "x": 9,
-        "y": 5
+        "y": 3
       },
       "id": 65,
       "links": [],
       "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
         "content": "<h3 style='color:#e68a00;font-weight:bold;text-align:center'>$version</h3>",
         "mode": "html"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Version",
       "type": "text"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "Defines the amount of memory the database server uses for shared memory buffers.  Default is 128MB.  Guidance on tuning is 25% of RAM, but generally doesn't exceed 40%.",
       "fieldConfig": {
         "defaults": {
@@ -331,7 +378,7 @@
         "h": 3,
         "w": 5,
         "x": 14,
-        "y": 5
+        "y": 3
       },
       "id": 67,
       "links": [
@@ -359,9 +406,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "expr": "avg by (service_name) (max_over_time(pg_settings_shared_buffers_bytes{service_name=~\"$service_name\"}[$interval]) or\nmax_over_time(pg_settings_shared_buffers_bytes{service_name=~\"$service_name\"}[5m])) ",
           "format": "time_series",
           "interval": "$interval",
@@ -373,6 +424,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "The parameter work_mem defines the amount of memory assigned for internal sort operations and hash tables before writing to temporary disk files.  The default is 4MB.",
       "fieldConfig": {
         "defaults": {
@@ -413,7 +468,7 @@
         "h": 3,
         "w": 5,
         "x": 19,
-        "y": 5
+        "y": 3
       },
       "id": 69,
       "links": [
@@ -441,9 +496,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "expr": "avg by (service_name) (max_over_time(pg_settings_work_mem_bytes{service_name=~\"$service_name\"}[$interval]) or\nmax_over_time(pg_settings_work_mem_bytes{service_name=~\"$service_name\"}[5m]))",
           "format": "time_series",
           "intervalFactor": 1,
@@ -455,6 +514,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "Whether autovacuum process is enabled or not.  Generally the solution is to vacuum more often, not less.",
       "fieldConfig": {
         "defaults": {
@@ -508,7 +571,7 @@
         "h": 3,
         "w": 4,
         "x": 0,
-        "y": 8
+        "y": 6
       },
       "id": 85,
       "links": [
@@ -536,9 +599,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "expr": "avg by (service_name) (max_over_time(pg_settings_autovacuum{service_name=~\"$service_name\"}[$interval]) or\nmax_over_time(pg_settings_autovacuum{service_name=~\"$service_name\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
@@ -550,6 +617,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -593,7 +664,7 @@
         "h": 3,
         "w": 5,
         "x": 4,
-        "y": 8
+        "y": 6
       },
       "id": 86,
       "links": [],
@@ -615,10 +686,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "targets": [
         {
-          "datasource": "Metrics",
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "exemplar": false,
           "expr": "avg by (service_name) (pg_postmaster_uptime_seconds{service_name=~\"$service_name\"})",
           "format": "time_series",
@@ -633,6 +707,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "The maximum number of client connections allowed.  Change this value with care as there are some memory resources that are allocated on a per-client basis, so setting max_connections higher will generally increase overall PostgreSQL memory usage.",
       "fieldConfig": {
         "defaults": {
@@ -673,7 +751,7 @@
         "h": 3,
         "w": 5,
         "x": 9,
-        "y": 8
+        "y": 6
       },
       "id": 1005,
       "links": [
@@ -701,9 +779,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "expr": "avg by (service_name) (max_over_time(pg_settings_max_connections{service_name=~\"$service_name\"}[$interval]) or\nmax_over_time(pg_settings_max_connections{service_name=~\"$service_name\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
@@ -716,6 +798,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "PostgreSQL's effective_cache_size variable tunes how much RAM you expect to be available for disk caching.  Generally adding Linux free+cached will give you a good idea.  This value is used by the query planner whether plans will fit in memory, and when defined too low, can lead to some plans rejecting certain indexes.",
       "fieldConfig": {
         "defaults": {
@@ -756,7 +842,7 @@
         "h": 3,
         "w": 5,
         "x": 14,
-        "y": 8
+        "y": 6
       },
       "id": 70,
       "links": [
@@ -784,9 +870,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "expr": "avg by (service_name) (max_over_time(pg_settings_effective_cache_size_bytes{service_name=~\"$service_name\"}[$interval]) or\nmax_over_time(pg_settings_effective_cache_size_bytes{service_name=~\"$service_name\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
@@ -799,6 +889,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "description": "The setting wal_buffers defines how much memory is used for caching the write-ahead log entries. Generally this value is small (3% of shared_buffers value), but it may need to be modified for heavily loaded servers.",
       "fieldConfig": {
         "defaults": {
@@ -839,7 +933,7 @@
         "h": 3,
         "w": 5,
         "x": 19,
-        "y": 8
+        "y": 6
       },
       "id": 68,
       "links": [
@@ -871,9 +965,13 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "targets": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "expr": "avg by (service_name) (max_over_time(pg_settings_wal_buffers_bytes{service_name=~\"$service_name\"}[$interval]) or\nmax_over_time(pg_settings_wal_buffers_bytes{service_name=~\"$service_name\"}[5m]))",
           "format": "time_series",
           "interval": "$interval",
@@ -885,15 +983,89 @@
       "type": "stat"
     },
     {
-      "collapsed": false,
+      "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 11
+        "y": 9
+      },
+      "id": 1007,
+      "panels": [
+        {
+          "datasource": "PTSummary",
+          "gridPos": {
+            "h": 16,
+            "w": 24,
+            "x": 0,
+            "y": 28
+          },
+          "id": 1009,
+          "pluginVersion": "7.1.3",
+          "targets": [
+            {
+              "datasource": {
+                "0": "P",
+                "1": "T",
+                "2": "S",
+                "3": "u",
+                "4": "m",
+                "5": "m",
+                "6": "a",
+                "7": "r",
+                "8": "y"
+              },
+              "queryType": {
+                "queryType": "postgresql",
+                "type": "postgresql",
+                "variableName": "service_id"
+              },
+              "refId": "A"
+            }
+          ],
+          "title": "Service Summary",
+          "type": "pmm-pt-summary-panel"
+        }
+      ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Service Summary",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 10
       },
       "id": 72,
       "panels": [],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Others",
       "type": "row"
     },
@@ -902,6 +1074,10 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "decimals": 2,
       "fieldConfig": {
         "defaults": {
@@ -915,10 +1091,10 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 12
+        "y": 11
       },
       "hiddenSeries": false,
-      "id": 22,
+      "id": 1013,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -941,7 +1117,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1040,6 +1216,10 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "decimals": 2,
       "description": "",
       "editable": true,
@@ -1057,10 +1237,10 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 12
+        "y": 11
       },
       "hiddenSeries": false,
-      "id": 14,
+      "id": 1011,
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -1082,7 +1262,7 @@
         "alertThreshold": true
       },
       "percentage": true,
-      "pluginVersion": "8.3.5",
+      "pluginVersion": "9.2.13",
       "pointradius": 1,
       "points": false,
       "renderer": "flot",
@@ -1119,12 +1299,14 @@
             "type": "prometheus",
             "uid": "PA58DA793C7250F1B"
           },
+          "editorMode": "code",
           "exemplar": true,
           "expr": "increase(postgresql_wal_bytes{service_name=\"$service_name\"})",
           "format": "time_series",
           "interval": "$checkpoint_timeout",
           "intervalFactor": 1,
           "legendFormat": "WAL bytes written per checkpoint timeout",
+          "range": true,
           "refId": "B"
         },
         {
@@ -1191,11 +1373,15 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 19
       },
       "id": 60,
       "panels": [
@@ -1204,7 +1390,7 @@
             "h": 18,
             "w": 24,
             "x": 0,
-            "y": 100
+            "y": 116
           },
           "id": 58,
           "links": [],
@@ -1217,20 +1403,37 @@
           "type": "text"
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Settings",
       "type": "row"
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PA58DA793C7250F1B"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 20
       },
       "id": 291,
       "panels": [
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "description": "The parameter shows how long a system has been “up” and running without a shut down or restart.",
           "fieldConfig": {
             "defaults": {
@@ -1263,7 +1466,7 @@
             "h": 3,
             "w": 3,
             "x": 0,
-            "y": 101
+            "y": 117
           },
           "id": 321,
           "interval": "$interval",
@@ -1290,6 +1493,10 @@
           "targets": [
             {
               "calculatedInterval": "10m",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "datasourceErrors": {},
               "errors": {},
               "expr": "avg by (node_name) ((node_time_seconds{node_name=~\"$node_name\"} - node_boot_time_seconds{node_name=~\"$node_name\"}) or (time() - node_boot_time_seconds{node_name=~\"$node_name\"}))",
@@ -1307,6 +1514,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "description": "The system load is a measurement of the computational work the system is performing. Each running process either using or waiting for CPU resources adds 1 to the load.",
           "fieldConfig": {
             "defaults": {
@@ -1349,7 +1560,7 @@
             "h": 3,
             "w": 3,
             "x": 3,
-            "y": 101
+            "y": 117
           },
           "id": 323,
           "links": [],
@@ -1374,6 +1585,10 @@
           "pluginVersion": "8.3.5",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name) (avg_over_time(node_load1{node_name=~\"$node_name\"}[$interval]) or avg_over_time(node_load1{node_name=~\"$node_name\"}[5m]))",
               "format": "time_series",
               "interval": "$interval",
@@ -1385,6 +1600,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "description": "RAM (Random Access Memory) is the hardware in a computing device where the operating system, application programs and data in current use are kept so they can be quickly reached by the device's processor.",
           "fieldConfig": {
             "defaults": {
@@ -1423,7 +1642,7 @@
             "h": 3,
             "w": 3,
             "x": 6,
-            "y": 101
+            "y": 117
           },
           "id": 327,
           "interval": "$interval",
@@ -1449,6 +1668,10 @@
           "pluginVersion": "8.3.5",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name) (node_memory_MemTotal_bytes{node_name=~\"$node_name\"})",
               "format": "time_series",
               "interval": "5m",
@@ -1461,6 +1684,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "description": "Percent of Memory Available\nNote: on Modern Linux Kernels amount of Memory Available for application is not the same as Free+Cached+Buffers",
           "fieldConfig": {
             "defaults": {
@@ -1503,7 +1730,7 @@
             "h": 3,
             "w": 3,
             "x": 9,
-            "y": 101
+            "y": 117
           },
           "id": 329,
           "links": [],
@@ -1528,6 +1755,10 @@
           "pluginVersion": "8.3.5",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name) ((node_memory_MemAvailable_bytes{node_name=~\"$node_name\"} or (node_memory_MemFree_bytes{node_name=~\"$node_name\"} + node_memory_Buffers_bytes{node_name=~\"$node_name\"} + node_memory_Cached_bytes{node_name=~\"$node_name\"})) / node_memory_MemTotal_bytes{node_name=~\"$node_name\"} * 100)",
               "format": "time_series",
               "interval": "$interval",
@@ -1539,6 +1770,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "description": "RAM + SWAP",
           "fieldConfig": {
             "defaults": {
@@ -1577,7 +1812,7 @@
             "h": 3,
             "w": 3,
             "x": 12,
-            "y": 101
+            "y": 117
           },
           "id": 331,
           "interval": "$interval",
@@ -1603,6 +1838,10 @@
           "pluginVersion": "8.3.5",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name) (node_memory_MemTotal_bytes{node_name=~\"$node_name\"}+node_memory_SwapTotal_bytes{node_name=~\"$node_name\"})",
               "format": "time_series",
               "interval": "5m",
@@ -1615,6 +1854,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "description": "Sum of disk space on all partitions. Note  it can be significantly over-reported in some installations",
           "fieldConfig": {
             "defaults": {
@@ -1653,7 +1896,7 @@
             "h": 3,
             "w": 3,
             "x": 15,
-            "y": 101
+            "y": 117
           },
           "id": 333,
           "interval": "$interval",
@@ -1685,6 +1928,10 @@
           "pluginVersion": "8.3.5",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name) (sum(avg(node_filesystem_size_bytes{node_name=~\"$node_name\",fstype=~\"(ext.|xfs|vfat|)\"}) without (mountpoint)) without (device,fstype))",
               "format": "time_series",
               "interval": "5m",
@@ -1697,6 +1944,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "description": "Lowest percent of the disk space available",
           "fieldConfig": {
             "defaults": {
@@ -1739,7 +1990,7 @@
             "h": 3,
             "w": 3,
             "x": 18,
-            "y": 101
+            "y": 117
           },
           "id": 335,
           "links": [],
@@ -1764,6 +2015,10 @@
           "pluginVersion": "8.3.5",
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "min(node_filesystem_free_bytes{node_name=~\"$node_name\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs|shm|overlay|squashfs\"}/node_filesystem_size_bytes{node_name=~\"$node_name\", fstype!~\"rootfs|selinuxfs|autofs|rpc_pipefs|tmpfs|shm|overlay|squashfs\"})*100",
               "format": "time_series",
               "interval": "$interval",
@@ -1780,11 +2035,11 @@
             "h": 3,
             "w": 3,
             "x": 21,
-            "y": 101
+            "y": 117
           },
           "id": 1002,
           "options": {
-            "content": "<h5 style='color:#e68a00;font-weight:bold;text-align:center'><a href=\"/graph/d/node-instance-summary/node-summary?var-node_name=$node_name\" target=\"_blank\">$crop_host...</a></h5>",
+            "content": "<h5 style='color:#e68a00;font-weight:bold;text-align:center'><a href=\"/graph/d/node-instance-summary/node-summary?var-node_name=$node_name\" target=\"_blank\">$node_name</a></h5>",
             "mode": "html"
           },
           "pluginVersion": "8.3.5",
@@ -1805,6 +2060,10 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "decimals": 2,
           "description": "The CPU time is measured in clock ticks or seconds. It is useful to measure CPU time as a percentage of the CPU's capacity, which is called the CPU usage.",
           "editable": true,
@@ -1822,7 +2081,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 104
+            "y": 120
           },
           "height": "",
           "hiddenSeries": false,
@@ -1869,6 +2128,10 @@
           "steppedLine": true,
           "targets": [
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name,mode) (clamp_max(((avg by (mode) ( (clamp_max(rate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\"}[$interval]),1)) or (clamp_max(irate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\"}[5m]),1)) ))*100 or (avg_over_time(node_cpu_average{node_name=~\"$node_name\", mode!=\"total\", mode!=\"idle\"}[$interval]) or avg_over_time(node_cpu_average{node_name=~\"$node_name\", mode!=\"total\", mode!=\"idle\"}[5m]))),100))",
               "format": "time_series",
               "interval": "$interval",
@@ -1877,6 +2140,10 @@
               "refId": "B"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "clamp_max(max by () (sum  by (cpu) ( (clamp_max(rate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\",mode!=\"iowait\"}[$interval]),1)) or (clamp_max(irate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\",mode!=\"iowait\"}[5m]),1)) )),1)",
               "format": "time_series",
               "hide": true,
@@ -1935,6 +2202,10 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "decimals": 2,
           "description": "When a system is running with maximum CPU utilization, the transmitting and receiving threads must all share the available CPU. This will cause data to be queued more frequently to cope with the lack of CPU. CPU Saturation may be measured as the length of a wait queue, or the time spent waiting on the queue.",
           "editable": true,
@@ -1952,7 +2223,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 104
+            "y": 120
           },
           "hiddenSeries": false,
           "id": 339,
@@ -1998,6 +2269,10 @@
           "targets": [
             {
               "calculatedInterval": "2s",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "datasourceErrors": {},
               "errors": {},
               "expr": "avg by (node_name) ((avg_over_time(node_procs_running{node_name=~\"$node_name\"}[$interval])-1) / scalar(count(node_cpu_seconds_total{mode=\"user\", node_name=~\"$node_name\"})) or (avg_over_time(node_procs_running{node_name=~\"$node_name\"}[5m])-1) / scalar(count(node_cpu_seconds_total{mode=\"user\", node_name=~\"$node_name\"})))",
@@ -2013,6 +2288,10 @@
             },
             {
               "calculatedInterval": "2s",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "datasourceErrors": {},
               "errors": {},
               "expr": "clamp_max(max by () (sum  by (cpu) ( (clamp_max(rate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\",mode!=\"iowait\"}[$interval]),1)) or (clamp_max(irate(node_cpu_seconds_total{node_name=~\"$node_name\",mode!=\"idle\",mode!=\"iowait\"}[5m]),1)) )),1)",
@@ -2073,6 +2352,10 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "decimals": 2,
           "description": "Disk I/O includes read or write or input/output operations involving a physical disk. It is the speed with which the data transfer takes place between the hard disk drive and RAM.\n\nSwap Activity is memory management that involves swapping sections of memory to and from physical storage.",
           "editable": true,
@@ -2090,7 +2373,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 112
+            "y": 128
           },
           "hiddenSeries": false,
           "id": 341,
@@ -2147,6 +2430,10 @@
           "targets": [
             {
               "calculatedInterval": "2s",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "datasourceErrors": {},
               "errors": {},
               "expr": "avg by (node_name) (rate(node_vmstat_pgpgin{node_name=\"$node_name\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{node_name=\"$node_name\"}[5m]) * 1024)",
@@ -2161,6 +2448,10 @@
             },
             {
               "calculatedInterval": "2s",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "datasourceErrors": {},
               "errors": {},
               "expr": "avg by (node_name) ((rate(node_vmstat_pgpgout{node_name=\"$node_name\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{node_name=\"$node_name\"}[5m]) * 1024))",
@@ -2174,6 +2465,10 @@
               "target": ""
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name) ((rate(node_vmstat_pgpgin{node_name=\"$node_name\"}[$interval]) * 1024 or irate(node_vmstat_pgpgin{node_name=\"$node_name\"}[5m]) * 1024 ) + (rate(node_vmstat_pgpgout{node_name=\"$node_name\"}[$interval]) * 1024 or irate(node_vmstat_pgpgout{node_name=\"$node_name\"}[5m]) * 1024))",
               "format": "time_series",
               "interval": "$interval",
@@ -2182,6 +2477,10 @@
               "refId": "C"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name) (rate(node_vmstat_pswpin{node_name=\"$node_name\"}[$interval]) * 4096 or irate(node_vmstat_pswpin{node_name=\"$node_name\"}[5m]) * 4096)",
               "format": "time_series",
               "interval": "$interval",
@@ -2190,6 +2489,10 @@
               "refId": "D"
             },
             {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "expr": "avg by (node_name) (rate(node_vmstat_pswpout{node_name=\"$node_name\"}[$interval]) * 4096 or irate(node_vmstat_pswpout{node_name=\"$node_name\"}[5m]) * 4096)",
               "format": "time_series",
               "interval": "$interval",
@@ -2237,6 +2540,10 @@
           "bars": false,
           "dashLength": 10,
           "dashes": false,
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
           "decimals": 2,
           "description": "Network traffic refers to the amount of data moving across a network at a given point in time.",
           "editable": true,
@@ -2254,7 +2561,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 112
+            "y": 128
           },
           "hiddenSeries": false,
           "id": 343,
@@ -2296,6 +2603,10 @@
           "targets": [
             {
               "calculatedInterval": "2s",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "datasourceErrors": {},
               "errors": {},
               "expr": "avg by (node_name) (sum(rate(node_network_receive_bytes_total{node_name=\"$node_name\", device!=\"lo\"}[$interval])) or sum(irate(node_network_receive_bytes_total{node_name=\"$node_name\", device!=\"lo\"}[5m])) or sum(max_over_time(rdsosmetrics_network_rx{node_name=\"$node_name\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_rx{node_name=\"$node_name\"}[5m])))",
@@ -2310,6 +2621,10 @@
             },
             {
               "calculatedInterval": "2s",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PA58DA793C7250F1B"
+              },
               "datasourceErrors": {},
               "errors": {},
               "expr": "avg by (node_name) (sum(rate(node_network_transmit_bytes_total{node_name=\"$node_name\", device!=\"lo\"}[$interval])) or sum(irate(node_network_transmit_bytes_total{node_name=\"$node_name\", device!=\"lo\"}[5m])) or\nsum(max_over_time(rdsosmetrics_network_tx{node_name=\"$node_name\"}[$interval])) or sum(max_over_time(rdsosmetrics_network_tx{node_name=\"$node_name\"}[5m])))",
@@ -2358,12 +2673,21 @@
           }
         }
       ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PA58DA793C7250F1B"
+          },
+          "refId": "A"
+        }
+      ],
       "title": "Node Summary",
       "type": "row"
     }
   ],
-  "refresh": false,
-  "schemaVersion": 34,
+  "refresh": "1m",
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -2459,8 +2783,8 @@
       {
         "current": {
           "selected": false,
-          "text": "agustin-gallego-node1",
-          "value": "agustin-gallego-node1"
+          "text": "pl-extending-pmm-agustin-gallego-node1",
+          "value": "pl-extending-pmm-agustin-gallego-node1"
         },
         "datasource": {
           "type": "prometheus",
@@ -2489,38 +2813,8 @@
       {
         "current": {
           "selected": false,
-          "text": "agustin-galle",
-          "value": "agustin-galle"
-        },
-        "datasource": {
-          "type": "prometheus",
-          "uid": "PA58DA793C7250F1B"
-        },
-        "definition": "label_values(pg_up{node_name=~\"$node_name\"},node_name)",
-        "hide": 2,
-        "includeAll": false,
-        "label": "Node Name",
-        "multi": false,
-        "name": "crop_host",
-        "options": [],
-        "query": {
-          "query": "label_values(pg_up{node_name=~\"$node_name\"},node_name)",
-          "refId": "Metrics-crop_host-Variable-Query"
-        },
-        "refresh": 2,
-        "regex": "/(.?.?.?.?.?.?.?.?.?.?.?.?.?).*/",
-        "skipUrlSync": false,
-        "sort": 5,
-        "tagValuesQuery": "",
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
-      },
-      {
-        "current": {
-          "selected": true,
-          "text": "postgres",
-          "value": "postgres"
+          "text": "postgres-pl-extending-pmm-agustin-gallego-node1",
+          "value": "postgres-pl-extending-pmm-agustin-gallego-node1"
         },
         "datasource": {
           "type": "prometheus",
@@ -2580,8 +2874,8 @@
       {
         "current": {
           "selected": false,
-          "text": "14.2",
-          "value": "14.2"
+          "text": "13.5",
+          "value": "13.5"
         },
         "datasource": {
           "type": "prometheus",
@@ -3161,8 +3455,8 @@
       {
         "current": {
           "selected": false,
-          "text": "1652815373000",
-          "value": "1652815373000"
+          "text": "1684253370000",
+          "value": "1684253370000"
         },
         "datasource": {
           "type": "prometheus",
@@ -3335,8 +3629,8 @@
       {
         "current": {
           "selected": false,
-          "text": "1652815373000",
-          "value": "1652815373000"
+          "text": "1684253370000",
+          "value": "1684253370000"
         },
         "datasource": {
           "type": "prometheus",
@@ -3625,8 +3919,8 @@
       {
         "current": {
           "selected": false,
-          "text": "1652815373000",
-          "value": "1652815373000"
+          "text": "1684253370000",
+          "value": "1684253370000"
         },
         "datasource": {
           "type": "prometheus",
@@ -3683,13 +3977,9 @@
       {
         "allValue": ".*",
         "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -3717,13 +4007,9 @@
       },
       {
         "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -3751,13 +4037,9 @@
       },
       {
         "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -3786,12 +4068,8 @@
       {
         "current": {
           "selected": false,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -3820,12 +4098,8 @@
       {
         "current": {
           "selected": false,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -3853,13 +4127,9 @@
       },
       {
         "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "selected": false,
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -3888,12 +4158,8 @@
       {
         "current": {
           "selected": false,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
+          "text": "All",
+          "value": "$__all"
         },
         "datasource": {
           "type": "prometheus",
@@ -3922,8 +4188,8 @@
       {
         "current": {
           "selected": false,
-          "text": "/service_id/51e919ea-3c5e-49ed-b53f-bd1c4681363d",
-          "value": "/service_id/51e919ea-3c5e-49ed-b53f-bd1c4681363d"
+          "text": "/service_id/788d3376-7d40-43e8-9712-fa273e2c0aed",
+          "value": "/service_id/788d3376-7d40-43e8-9712-fa273e2c0aed"
         },
         "datasource": {
           "type": "prometheus",
@@ -3952,8 +4218,8 @@
     ]
   },
   "time": {
-    "from": "2022-05-17T18:26:01.088Z",
-    "to": "2022-05-17T19:22:52.569Z"
+    "from": "now-30m",
+    "to": "now"
   },
   "timepicker": {
     "hidden": false,
@@ -3982,8 +4248,8 @@
     ]
   },
   "timezone": "",
-  "title": "PostgreSQL Custom",
-  "uid": "DLgsS5unz",
-  "version": 3,
+  "title": "PostgreSQL Custom Dashboard",
+  "uid": "U6MscLU4k",
+  "version": 1,
   "weekStart": ""
 }
